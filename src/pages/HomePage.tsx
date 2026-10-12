@@ -3,7 +3,7 @@ import Hero from '../components/hero.tsx';
 
 export function HomePage() {
   return (
-    <main className="bg-[#06111e]">
+    <main>
       <Header/>
       <Hero/>
     </main>

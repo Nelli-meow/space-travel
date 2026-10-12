@@ -2,7 +2,7 @@ import './componentsCSS.css';
 
 const Header = () => {
   return (
-    <div className="header flex justify-between items-center p-5 mb-10">
+    <div className="header relative z-20 flex justify-between items-center bg-transparent p-5">
       <div className="flex items-center gap-3">
         <div className="orbit-logo">
           <div className="orbit-ring">
@@ -23,7 +23,7 @@ const Header = () => {
       </nav>
 
       <div className="user">
-        <button className="cursor-pointer">login</button>
+        <button className="cursor-pointer text-white">login</button>
       </div>
     </div>
   );
