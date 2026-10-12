@@ -1,0 +1,53 @@
+.orbit-logo {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Внешняя орбита */
+.orbit-ring {
+    position: absolute;
+    inset: 2px;
+    border: 1px solid rgba(139, 233, 253, 0.8);
+    border-radius: 50%;
+    transform: rotate(-35deg) scaleY(0.72);
+    box-shadow:
+            0 0 8px rgba(75, 234, 255, 0.15),
+            inset 0 0 8px rgba(75, 234, 255, 0.08);
+    animation: orbit-glow 4s ease-in-out infinite;
+}
+
+/* Планета внутри */
+.orbit-planet {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: linear-gradient(
+            135deg,
+            rgb(75, 234, 255),
+            rgb(79, 141, 255) 55%,
+            rgb(117, 107, 255)
+    );
+    box-shadow:
+            0 0 12px rgba(75, 234, 255, 0.4),
+            0 0 24px rgba(79, 141, 255, 0.15);
+}
+
+/* Мягкое свечение */
+@keyframes orbit-glow {
+    0%, 100% {
+        opacity: 0.65;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

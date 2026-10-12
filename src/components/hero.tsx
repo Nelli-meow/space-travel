@@ -1,0 +1,44 @@
+
+const Hero = () => {
+  return (
+    <div className="text-center">
+      <div className="text-9xl font-black font-['Playfair_Display',serif] flex justify-center flex-col mb-30">
+        <span className="text-white">Luxury</span>
+        <span className="italic bg-clip-text text-transparent bg-[linear-gradient(160deg,rgb(191,200,216)_0%,rgb(248,249,252)_40%,rgb(139,233,253)_100%)]">Beyond</span>
+        <span className="text-white">Earth</span>
+      </div>
+
+      <div className="flex justify-center mb-15">
+        <p className="w-150 text-gray-600 font-semibold">The universe is not a destination — it is a state of being. Orbit curates private journeys across the solar system for those who have seen everything this world has to offer.</p>
+      </div>
+
+      <div className="text-center gap-5 flex justify-center mb-20">
+        <button className="cursor-pointer w-56 py-4 rounded-full bg-[linear-gradient(135deg,rgb(79,141,255),rgb(75,234,255))]">
+          Book your journey
+        </button>
+        <button className="cursor-pointer w-56 py-4 rounded-full bg-[rgba(248,249,252,0.04)] border border-gray-400 text-white">
+          Explore destinations
+        </button>
+      </div>
+
+      <div className="text-center gap-5 flex justify-center">
+        <div className="text-center flex justify-center flex-col w-[180px]">
+          <span className="text-white font-['Playfair_Display',serif] text-5xl font-extrabold">2,847</span>
+          <span className="text-gray-600">Passengers</span>
+        </div>
+
+        <div className="text-center  flex justify-center flex-col border-x border-gray-700 w-[180px]">
+          <span className="text-white font-['Playfair_Display',serif] text-5xl font-extrabold">12</span>
+          <span className="text-gray-600 font-['DM_Mono',monospace]">Destinations</span>
+        </div>
+
+        <div className="text-center  flex justify-center flex-col w-[180px]">
+          <span className="text-white font-['Playfair_Display',serif] text-5xl font-extrabold">8 yrs</span>
+          <span className="text-gray-600 font-['DM_Mono',monospace]">Operations</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
