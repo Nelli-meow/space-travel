@@ -1,5 +1,5 @@
 import './componentsCSS.css';
-import { IoMdPlanet } from 'react-icons/io';
+import { IoIosRocket, IoMdPlanet } from 'react-icons/io';
 
 const Header = () => {
   return (
@@ -28,7 +28,7 @@ const Header = () => {
           <IoMdPlanet className="text-[#8DEBFF]" />
           <span>Guest Access</span>
           <span className="text-[#8DEBFF] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
-            ↗
+            <IoIosRocket  className="text-[#8DEBFF]"/>
           </span>
         </button>
       </div>
