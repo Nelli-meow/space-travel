@@ -81,7 +81,7 @@ export function Starfield() {
     };
 
     const animate = () => {
-      ctx.fillStyle = '#06111e';
+      ctx.fillStyle = 'rgba(6, 17, 30, 0.2)';
       ctx.fillRect(0, 0, width, height);
 
       for (const star of stars) {
