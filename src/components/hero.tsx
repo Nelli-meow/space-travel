@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className="relative isolate min-h-screen overflow-hidden bg-[#06111e] pt-[122px] text-center">
       <Starfield />
-      <div className=" relative z-10 text-9xl font-black font-['Playfair_Display',serif] flex justify-center flex-col mb-30">
+      <div className=" relative z-10 text-9xl font-black font-['Playfair_Display',serif] flex justify-center flex-col mb-20">
         <span className="text-white">Luxury</span>
         <span className="italic bg-clip-text text-transparent bg-[linear-gradient(160deg,rgb(191,200,216)_0%,rgb(248,249,252)_40%,rgb(139,233,253)_100%)]">
           Beyond

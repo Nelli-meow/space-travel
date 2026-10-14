@@ -1,10 +1,12 @@
+import { CanvasStars } from './CanvasStars.tsx';
+
 const Manifesto = () => {
   return (
-    <section className="bg-black px-6 py-24 text-white sm:px-12 lg:px-20 lg:py-32">
-      <div className="mx-auto grid max-w-6xl gap-y-16 lg:grid-cols-[9rem_minmax(0,1fr)] lg:gap-x-16">
-        <p className="flex items-center gap-4 self-start pt-3 text-[11px] tracking-[0.28em] text-white/50 uppercase">
-          <span className="text-[#3ecfdb]">01</span>
-          <span className="h-px w-8 bg-white/35" aria-hidden="true" />
+    <section className="relative isolate overflow-hidden bg-black px-6 py-24 text-white sm:px-12 lg:px-20 lg:py-32">
+      <CanvasStars />
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-y-16 lg:grid-cols-[9rem_minmax(0,1fr)] lg:gap-x-16">
+        <p className="flex items-center gap-4 self-start pt-3 text-[11px] tracking-[0.28em] text-[#3ecfdb] uppercase">
+          <span className="h-px w-8 bg-white/35 " aria-hidden="true" />
           Manifesto
         </p>
 

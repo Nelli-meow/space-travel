@@ -34,8 +34,8 @@ export function Starfield() {
     let animationId = 0;
 
     const stars: Star[] = [];
-    const STAR_COUNT = 520;
-    const SPEED = 0.006;
+    const STAR_COUNT = 620;
+    const SPEED = 0.005;
 
     const createStar = (): Star => ({
       x: Math.random() * 2 - 1,
