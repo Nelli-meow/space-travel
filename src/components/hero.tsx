@@ -2,7 +2,7 @@ import { Starfield } from './Starfield.tsx';
 
 const Hero = () => {
   return (
-    <section className="relative isolate min-h-screen overflow-hidden bg-[#06111e] pt-[122px] text-center">
+    <section className="relative isolate min-h-screen overflow-hidden bg-[#06111e] pt-[152px] text-center">
       <Starfield />
       <div className=" relative z-10 text-9xl font-black font-['Playfair_Display',serif] flex justify-center flex-col mb-20">
         <span className="text-white">Luxury</span>
