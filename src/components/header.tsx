@@ -1,26 +1,27 @@
 import './componentsCSS.css';
 import { IoIosRocket, IoMdPlanet } from 'react-icons/io';
+import { Link } from 'react-router';
 
 const Header = () => {
   return (
     <div className="header absolute inset-x-0 top-0 z-20 flex items-center justify-between bg-transparent p-5">
-      <div className="flex items-center gap-3">
+      <Link to="/" className="flex items-center gap-3">
         <div className="orbit-logo">
           <div className="orbit-ring">
             <div className="orbit-planet" />
           </div>
         </div>
 
-        <h1 className="uppercase text-white font-['Outfit',_sans-serif]">
+        <h1  className="uppercase text-white font-['Outfit',sans-serif] font-bold tracking-[0.28em]">
           Orbit
         </h1>
-      </div>
+      </Link>
 
-      <nav className="flex justify-between gap-10 text-gray-600 font-semibold items-center">
-        <a href="#">Destinations</a>
-        <a href="#">Fleet</a>
-        <a href="#">Experience</a>
-        <a href="#">Stories</a>
+      <nav className="flex justify-between gap-10 text-gray-600 font-semibold items-center ">
+        <a href="#" className="transition-colors hover:text-white">Destinations</a>
+        <a href="#" className="transition-colors hover:text-white">Fleet</a>
+        <a href="#" className="transition-colors hover:text-white">Experience</a>
+        <a href="#" className="transition-colors hover:text-white">Stories</a>
       </nav>
 
       <div className="user">

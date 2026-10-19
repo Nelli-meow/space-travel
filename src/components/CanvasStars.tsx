@@ -30,7 +30,7 @@ export function CanvasStars() {
     let height = 0;
     let animationId = 0;
 
-    const STAR_COUNT = 455;
+    const STAR_COUNT = 255;
     const stars: Star[] = [];
 
     const createStar = (): Star => ({
