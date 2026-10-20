@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 import { HomePage } from '../pages/HomePage';
-import Booking from '../pages/Booking.tsx';
+import Fleet from '../pages/Fleet.tsx';
 import Destinations from '../pages/Destinations.tsx';
 
 export const router = createBrowserRouter([
@@ -9,8 +9,8 @@ export const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: '/booking',
-    element: <Booking />,
+    path: '/fleet',
+    element: <Fleet />,
   },
   {
     path: '/destinations',

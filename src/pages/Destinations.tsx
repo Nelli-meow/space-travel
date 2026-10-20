@@ -3,8 +3,6 @@ import Footer from '../components/Footer.tsx';
 import Card from '../components/Card.tsx';
 import { destinations } from '../types/destination.ts';
 
-
-
 const Destinations = () => {
   return (
     <main className="min-h-screen bg-black pt-32 text-white">
@@ -13,7 +11,7 @@ const Destinations = () => {
         <div className="flex w-full flex-col">
           {destinations.map((destination, index) => (
             <Card
-              key={destination.title}
+              key={destination.slug}
               destination={destination}
               reversed={index % 2 !== 0}
             />

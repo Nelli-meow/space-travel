@@ -22,7 +22,7 @@ const Hero = () => {
       </div>
 
       <div className="text-center gap-5 flex justify-center mb-20 relative z-10">
-        <Link to="/booking" className="cursor-pointer w-56 py-4 rounded-full bg-[linear-gradient(135deg,rgb(79,141,255),rgb(75,234,255))] shadow-[0_16px_28px_-6px_rgba(0,220,250,0.09)]">
+        <Link to="/fleet" className="cursor-pointer w-56 py-4 rounded-full bg-[linear-gradient(135deg,rgb(79,141,255),rgb(75,234,255))] shadow-[0_16px_28px_-6px_rgba(0,220,250,0.09)]">
           Book your journey
         </Link>
         <Link to="/destinations" className="cursor-pointer w-56 py-4 rounded-full bg-[rgba(248,249,252,0.04)] border border-gray-400 text-white">

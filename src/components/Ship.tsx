@@ -1,18 +1,4 @@
-
-export type Ship = {
-  eyebrow: string;
-  name: string;
-  capacity: string;
-  speed: string;
-  range: string;
-  comfort: number;
-  amenities: string[];
-  backdrop: string;
-};
-
-type ShipCardProps = {
-  ship: Ship;
-};
+import type { iShipCardProps } from '../types/fleet.ts';
 
 const stats = [
   { label: 'Capacity', key: 'capacity' },
@@ -20,7 +6,7 @@ const stats = [
   { label: 'Range', key: 'range' },
 ] as const;
 
-const ShipCard = ({ ship }: ShipCardProps) => {
+const ShipCard = ({ ship }: iShipCardProps) => {
   return (
     <article className="group relative overflow-hidden rounded-2xl border border-white/10 px-8 py-10 lg:px-12">
       <div

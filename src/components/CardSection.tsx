@@ -1,7 +1,6 @@
 import Card from './Card.tsx';
 import { destinations } from '../types/destination.ts';
 
-
 const CardSection = () => {
   return (
     <section className="w-full bg-black text-white">

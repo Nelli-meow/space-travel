@@ -35,7 +35,7 @@ const JourneyCta = () => {
               aria-hidden="true"
             />
             <Link
-              to="/booking"
+              to="/fleet"
               className="relative rounded-full bg-[linear-gradient(100deg,#3b78ff_0%,#3ad4f0_100%)] px-8 py-3.5 text-[12px] font-medium tracking-[0.16em] text-white uppercase shadow-[0_16px_28px_-6px_rgba(0,220,230,0.002)]"
             >
               Reserve your seat
