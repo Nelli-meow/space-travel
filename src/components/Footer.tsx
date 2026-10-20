@@ -2,7 +2,7 @@ import { type FormEvent, useState } from 'react';
 import { Link } from 'react-router';
 import './componentsCSS.css';
 
-const explore = ['Destinations', 'Fleet', 'Experience', 'Training Academy'];
+const explore = ['destinations', 'fleet', 'experience', 'training Academy'];
 const company = ['About Orbit', 'Careers', 'Press', 'Investors'];
 const support = ['FAQ', 'Safety', 'Medical Info', 'Contact Us'];
 
@@ -30,7 +30,7 @@ const FooterLinkColumn = ({
           <li key={link}>
             <Link
               to={'/' + link}
-              className="text-sm text-white/75 transition-colors hover:text-white"
+              className="text-sm text-white/75 transition-colors hover:text-white capitalize"
             >
               {link}
             </Link>

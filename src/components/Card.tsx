@@ -1,19 +1,9 @@
-export type Destination = {
-  eyebrow: string;
-  title: string;
-  residence: string;
-  description: string;
-  duration: string;
-  price: string;
-  coordinates: string;
-  distance: string;
-  highlight: string;
-  surface: string;
-  shadow: string;
-};
+import { Link } from 'react-router';
+import type { IDestination } from '../types/destination.ts';
+
 
 type CardProps = {
-  destination: Destination;
+  destination: IDestination;
   reversed: boolean;
 };
 
@@ -78,13 +68,13 @@ const Card = ({ destination, reversed }: CardProps) => {
               </div>
             </div>
 
-            <button
-              type="button"
+            <Link
+              to={'/destinations/' + destination.slug}
               className="mt-8 inline-flex cursor-pointer items-center gap-3 text-xs tracking-[0.16em] text-[#e8843a] uppercase"
             >
               Book this journey
               <span aria-hidden="true">→</span>
-            </button>
+            </Link>
           </div>
 
           <div
