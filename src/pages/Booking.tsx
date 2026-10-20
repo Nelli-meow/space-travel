@@ -2,6 +2,7 @@ import Footer from '../components/Footer.tsx';
 import Header from '../components/header.tsx';
 import ShipCard from '../components/Ship.tsx';
 import type { Ship } from '../components/Ship.tsx';
+import { CanvasStars } from '../components/CanvasStars.tsx';
 
 const ships: Ship[] = [
   {
@@ -54,9 +55,10 @@ const ships: Ship[] = [
 
 const Booking = () => {
   return (
-    <main className="min-h-screen bg-black pt-32 text-white">
+    <main className="relative isolate min-h-screen bg-black pt-32 text-white">
       <Header />
-      <section className="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-16">
+      <CanvasStars />
+      <section className=" relative z-10 mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-16">
         {ships.map((ship) => (
           <ShipCard key={ship.name} ship={ship} />
         ))}

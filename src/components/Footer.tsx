@@ -28,12 +28,12 @@ const FooterLinkColumn = ({
       <ul className="mt-5 space-y-3.5">
         {links.map((link) => (
           <li key={link}>
-            <a
-              href="#"
+            <Link
+              to={'/' + link}
               className="text-sm text-white/75 transition-colors hover:text-white"
             >
               {link}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -49,7 +49,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black px-6 py-16 text-white sm:px-10 lg:px-16 lg:py-20">
+    <footer className="bg-black px-6 py-16 text-white sm:px-10 lg:px-16 lg:py-20 ">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.72fr)_minmax(0,0.72fr)_minmax(0,0.8fr)_minmax(0,1.35fr)] lg:gap-8">
           <div>

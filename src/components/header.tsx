@@ -18,10 +18,10 @@ const Header = () => {
       </Link>
 
       <nav className="flex justify-between gap-10 text-gray-600 font-semibold items-center ">
-        <a href="#" className="transition-colors hover:text-white">Destinations</a>
-        <a href="#" className="transition-colors hover:text-white">Fleet</a>
-        <a href="#" className="transition-colors hover:text-white">Experience</a>
-        <a href="#" className="transition-colors hover:text-white">Stories</a>
+        <Link to="/destinations" className="transition-colors hover:text-white">Destinations</Link>
+        <Link to="#" className="transition-colors hover:text-white">Fleet</Link>
+        <Link to="#" className="transition-colors hover:text-white">Experience</Link>
+        <Link to="#" className="transition-colors hover:text-white">Stories</Link>
       </nav>
 
       <div className="user">

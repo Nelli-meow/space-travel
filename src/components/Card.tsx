@@ -23,7 +23,7 @@ const Card = ({ destination, reversed }: CardProps) => {
       <div className="relative mx-auto max-w-6xl px-8 py-12 ">
         {/*<p*/}
         {/*  aria-hidden="true"*/}
-        {/*  className={`pointer-events-none absolute top-1/2 -translate-y-1/2 font-['Playfair_Display',serif] text-[33rem] leading-none font-medium tracking-tight text-[#8ea0c4]/10 select-none ${*/}
+        {/*  className={`pointer-events-none absolute top-1/2 -translate-y-1/2 font-['Playfair_Display',serif] text-[23rem] leading-none font-medium tracking-tight text-[#8ea0c4]/10 select-none ${*/}
         {/*    reversed ? 'left-6' : 'right-6'*/}
         {/*  }`}*/}
         {/*>*/}
