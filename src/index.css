@@ -8,3 +8,42 @@
   layer(primereact);
 @import 'primereact/resources/primereact.min.css' layer(primereact);
 @import 'primeicons/primeicons.css' layer(primereact);
+
+.scroll-reveal > * {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+            opacity 1.2s ease,
+            transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Последовательное появление */
+.scroll-reveal.is-visible > *:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.scroll-reveal.is-visible > *:nth-child(2) {
+    transition-delay: 0.25s;
+}
+
+.scroll-reveal.is-visible > *:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.scroll-reveal.is-visible > *:nth-child(4) {
+    transition-delay: 0.55s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal > * {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
