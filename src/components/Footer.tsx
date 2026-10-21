@@ -29,7 +29,7 @@ const FooterLinkColumn = ({
         {links.map((link) => (
           <li key={link}>
             <Link
-              to={'/' + link}
+              to={`/${link}`}
               className="text-sm text-white/75 transition-colors hover:text-white capitalize"
             >
               {link}

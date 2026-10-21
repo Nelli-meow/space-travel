@@ -1,4 +1,5 @@
 import type { iShipCardProps } from '../types/fleet.ts';
+import { Link } from 'react-router';
 
 const stats = [
   { label: 'Capacity', key: 'capacity' },
@@ -8,7 +9,7 @@ const stats = [
 
 const ShipCard = ({ ship }: iShipCardProps) => {
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-white/10 px-8 py-10 lg:px-12">
+    <article className="group relative overflow-hidden rounded-2xl border border-white/10 px-8 py-10">
       <div
         aria-hidden="true"
         className="absolute inset-0 scale-100 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
@@ -67,14 +68,19 @@ const ShipCard = ({ ship }: iShipCardProps) => {
           </div>
         </div>
 
-        <ul className="space-y-3 text-sm text-white/80 lg:max-w-xs">
-          {ship.amenities.map((amenity) => (
-            <li key={amenity} className="flex items-start gap-3">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#8BE9FD]" />
-              {amenity}
-            </li>
-          ))}
-        </ul>
+        <div className="shrink-0 space-y-5 lg:w-72">
+          <ul className="space-y-3 text-sm text-white/80">
+            {ship.amenities.map((amenity) => (
+              <li key={amenity} className="flex items-start gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#8BE9FD]" />
+                {amenity}
+              </li>
+            ))}
+          </ul>
+          <div>
+            <Link  to={`/fleet/${ship.slug}`} className="cursor-pointer inline-flex p-3 rounded-full bg-[rgba(248,249,252,0.04)] border border-gray-400 text-white">Explore vessel</Link>
+          </div>
+        </div>
       </div>
     </article>
   );
