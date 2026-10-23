@@ -1,3 +1,25 @@
+import hotel1 from '../assets/images/hotels/hotel1.jpeg';
+import hotel2 from '../assets/images/hotels/hotel2.jpeg';
+import hotel3 from '../assets/images/hotels/hotel3.jpeg';
+import hotel4 from '../assets/images/hotels/hotel4.jpeg';
+import hotel5 from '../assets/images/hotels/hotel5.jpeg';
+import hotel6 from '../assets/images/hotels/hotel6.jpeg';
+import hotel7 from '../assets/images/hotels/hotel7.jpeg';
+import hotel8 from '../assets/images/hotels/hotel8.jpeg';
+import hotel9 from '../assets/images/hotels/hotel9.jpeg';
+
+export {
+  hotel1,
+  hotel2,
+  hotel3,
+  hotel4,
+  hotel5,
+  hotel6,
+  hotel7,
+  hotel8,
+  hotel9,
+};
+
 export interface IHotel {
   slug: string;
   name: string;
@@ -28,7 +50,7 @@ export const hotels: IHotel[] = [
       'Glass-enclosed observatory',
       'Private rover expeditions',
     ],
-    image: '/images/hotels/mars-olympus-sky.jpg',
+    image: hotel1,
   },
   {
     slug: 'mars-dust-and-dawn',
@@ -45,7 +67,7 @@ export const hotels: IHotel[] = [
       'Low-gravity wellness lounge',
       'Guided sunset excursions',
     ],
-    image: '/images/hotels/mars-dust-and-dawn.jpg',
+    image: hotel2,
   },
 
   // EUROPA
@@ -64,7 +86,7 @@ export const hotels: IHotel[] = [
       'Subsurface ocean observatory',
       'Private hydrotherapy spa',
     ],
-    image: '/images/hotels/europa-subsurface-haven.jpg',
+    image: hotel3,
   },
   {
     slug: 'europa-glacial',
@@ -81,7 +103,7 @@ export const hotels: IHotel[] = [
       'Immersive ocean simulations',
       'Private dining observatory',
     ],
-    image: '/images/hotels/europa-glacial.jpg',
+    image: hotel4,
   },
 
   // TITAN
@@ -100,7 +122,7 @@ export const hotels: IHotel[] = [
       'Amber-lit private suites',
       'Guided surface expeditions',
     ],
-    image: '/images/hotels/titan-kraken-sea.jpg',
+    image: hotel5,
   },
   {
     slug: 'titan-saturnia',
@@ -109,7 +131,7 @@ export const hotels: IHotel[] = [
     description:
       'A remote luxury residence designed around the spectacle of Saturn. Warm amber interiors and elevated viewing galleries make the distant rings part of every stay.',
     destinationSlug: 'titan',
-    rating: 5,
+    rating: 4,
     price: 'From $2.3M',
     duration: '9 days',
     amenities: [
@@ -117,7 +139,7 @@ export const hotels: IHotel[] = [
       'Panoramic dining hall',
       'Private atmospheric excursions',
     ],
-    image: '/images/hotels/titan-saturnia.jpg',
+    image: hotel6,
   },
 
   // KEPLER-452B
@@ -136,7 +158,7 @@ export const hotels: IHotel[] = [
       'Artificial lakes and walking trails',
       'Private biosphere villas',
     ],
-    image: '/images/hotels/kepler-452b-new-eden.jpg',
+    image: hotel7,
   },
   {
     slug: 'kepler-452b-verdant',
@@ -153,7 +175,7 @@ export const hotels: IHotel[] = [
       'Immersive nature conservatory',
       'Panoramic sky lounge',
     ],
-    image: '/images/hotels/kepler-452b-verdant.jpg',
+    image: hotel8,
   },
 
   // TOI-700 D
@@ -172,7 +194,7 @@ export const hotels: IHotel[] = [
       'Immersive water gardens',
       'Private marine-inspired suites',
     ],
-    image: '/images/hotels/toi-700-d-pelagic.jpg',
+    image: hotel9,
   },
   {
     slug: 'toi-700-d-tidal',
@@ -189,7 +211,7 @@ export const hotels: IHotel[] = [
       'Hydrotherapy and wellness center',
       'Underwater light installations',
     ],
-    image: '/images/hotels/toi-700-d-tidal.jpg',
+    image: hotel1,
   },
 
   // PROXIMA CENTAURI B
@@ -208,7 +230,7 @@ export const hotels: IHotel[] = [
       'Custom artificial daylight cycles',
       'Private stellar observatory',
     ],
-    image: '/images/hotels/proxima-centauri-b-redshift.jpg',
+    image: hotel2,
   },
   {
     slug: 'proxima-centauri-b-cinder',
@@ -225,7 +247,7 @@ export const hotels: IHotel[] = [
       'Zero-gravity relaxation chamber',
       'Personalized expedition planning',
     ],
-    image: '/images/hotels/proxima-centauri-b-cinder.jpg',
+    image: hotel3,
   },
 
   // TRAPPIST-1E
@@ -244,7 +266,7 @@ export const hotels: IHotel[] = [
       'Engineered wetlands',
       'Private garden residences',
     ],
-    image: '/images/hotels/trappist-1e-asteria.jpg',
+    image: hotel4,
   },
   {
     slug: 'trappist-1e-vesper',
@@ -261,7 +283,7 @@ export const hotels: IHotel[] = [
       'Night-sky observation lounge',
       'Botanical wellness pavilion',
     ],
-    image: '/images/hotels/trappist-1e-vesper.jpg',
+    image: hotel5,
   },
 
   // LHS 1140 B
@@ -280,7 +302,7 @@ export const hotels: IHotel[] = [
       'Twilight observation deck',
       'Private wellness facilities',
     ],
-    image: '/images/hotels/lhs-1140-b-terminus.jpg',
+    image: hotel6,
   },
   {
     slug: 'lhs-1140-b-blue-hour',
@@ -297,7 +319,7 @@ export const hotels: IHotel[] = [
       'Immersive tidal observatory',
       'Private dining salons',
     ],
-    image: '/images/hotels/lhs-1140-b-blue-hour.jpg',
+    image: hotel7,
   },
 
   // KEPLER-186F
@@ -316,7 +338,7 @@ export const hotels: IHotel[] = [
       'Violet-horizon observation suites',
       'Guided wilderness excursions',
     ],
-    image: '/images/hotels/kepler-186f-vesper-garden.jpg',
+    image: hotel8,
   },
   {
     slug: 'kepler-186f-amaranth',
@@ -333,6 +355,6 @@ export const hotels: IHotel[] = [
       'Immersive astronomy theater',
       'Private botanical walking paths',
     ],
-    image: '/images/hotels/kepler-186f-amaranth.jpg',
+    image: hotel9,
   },
 ];

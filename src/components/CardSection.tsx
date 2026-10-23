@@ -7,7 +7,7 @@ const CardSection = () => {
       <div className="flex w-full flex-col">
         {destinations.slice(0, 3).map((destination, index) => (
           <Card
-            key={destination.title}
+            key={destination.slug}
             destination={destination}
             reversed={index % 2 !== 0}
           />
