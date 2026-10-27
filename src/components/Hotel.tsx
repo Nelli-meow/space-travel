@@ -17,7 +17,7 @@ const Hotel = ({hotel}: HotelProps) => {
         />
         <div className=" py-4">
           <div className="font-bold text-xl mb-2">{hotel.name}</div>
-          <p className="text-gray-700 text-base line-clamp-4">
+          <p className="text-gray-500 text-base line-clamp-4">
             {hotel.description}
           </p>
         </div>
@@ -45,7 +45,7 @@ const Hotel = ({hotel}: HotelProps) => {
             duration {hotel.duration}
           </span>
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 liquid-glass">
-            {hotel.eyebrow}
+            {hotel.destinationSlug}
           </span>
         </div>
         <div className="mt-auto flex flex-wrap gap-3 pt-4">

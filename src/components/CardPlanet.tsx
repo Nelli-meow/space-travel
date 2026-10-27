@@ -8,7 +8,7 @@ type CardProps = {
   reversed: boolean;
 };
 
-const Card = ({ destination, reversed }: CardProps) => {
+const CardPlanet = ({ destination, reversed }: CardProps) => {
   return (
     <article className="relative w-full overflow-hidden border-t-1 border-gray-700 bg-[#0a0d16]">
       <div className="relative mx-auto max-w-6xl px-8 py-12 ">
@@ -100,4 +100,4 @@ const Card = ({ destination, reversed }: CardProps) => {
   );
 };
 
-export default Card;
+export default CardPlanet;

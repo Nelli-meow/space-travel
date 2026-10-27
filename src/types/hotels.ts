@@ -258,7 +258,7 @@ export const hotels: IHotel[] = [
     description:
       'A protected botanical settlement beneath a distant red star, with transparent domes, engineered wetlands, and carefully regulated atmospheric conditions.',
     destinationSlug: 'trappist-1e',
-    rating: 5,
+    rating: 4,
     price: 'From $11.3M',
     duration: '18 days',
     amenities: [
@@ -294,7 +294,7 @@ export const hotels: IHotel[] = [
     description:
       'A climate-controlled ocean retreat beneath a permanent twilight sky, offering an immersive vision of alien tides and the quiet mystery of a distant rocky world.',
     destinationSlug: 'lhs-1140-b',
-    rating: 5,
+    rating: 4,
     price: 'From $13.7M',
     duration: '24 days',
     amenities: [
@@ -347,7 +347,7 @@ export const hotels: IHotel[] = [
     description:
       'An elegant hideaway among imagined alien gardens, with sculptural architecture, atmospheric lighting, and uninterrupted views of the distant horizon.',
     destinationSlug: 'kepler-186f',
-    rating: 5,
+    rating: 4,
     price: 'From $10.8M',
     duration: '21 days',
     amenities: [

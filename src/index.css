@@ -80,3 +80,9 @@
             rgba(255, 255, 255, 0.03)
     );
 }
+
+.p-paginator .p-dropdown,
+.p-paginator .p-dropdown .p-dropdown-trigger,
+.p-paginator .p-dropdown .p-dropdown-label {
+    background: transparent !important;
+}

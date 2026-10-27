@@ -1,6 +1,6 @@
 import Header from '../components/header.tsx';
 import Footer from '../components/Footer.tsx';
-import Card from '../components/Card.tsx';
+import CardPlanet from '../components/CardPlanet.tsx';
 import { destinations } from '../types/destination.ts';
 
 const Destinations = () => {
@@ -10,7 +10,7 @@ const Destinations = () => {
       <section className=" mx-auto flex flex-col gap-6  pb-16">
         <div className="flex w-full flex-col">
           {destinations.map((destination, index) => (
-            <Card
+            <CardPlanet
               key={destination.slug}
               destination={destination}
               reversed={index % 2 !== 0}

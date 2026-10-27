@@ -6,6 +6,7 @@ const stats = [
   { label: 'Capacity', key: 'capacity' },
   { label: 'Max. speed', key: 'speed' },
   { label: 'Range', key: 'range' },
+  { label: 'Price', key: 'price' },
 ] as const;
 
 const ShipCard = ({ ship }: iShipCardProps) => {

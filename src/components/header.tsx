@@ -1,5 +1,5 @@
 import './componentsCSS.css';
-import { IoIosRocket, IoMdPlanet } from 'react-icons/io';
+import { IoIosRocket } from 'react-icons/io';
 import { Link } from 'react-router';
 
 const Header = () => {
@@ -26,13 +26,12 @@ const Header = () => {
       </nav>
 
       <div className="user">
-        <button className="cursor-pointer group flex items-center gap-3 rounded-full border border-[#52657A] p-3  text-sm font-medium text-[#F8F9FC] transition-all duration-300 hover:border-[#8DEBFF] hover:bg-[#8DEBFF]/5 hover:shadow-[0_0_24px_rgba(139,233,253,0.12)]">
-          <IoMdPlanet className="text-[#8DEBFF]" />
+        <Link to="/booking" className="cursor-pointer group flex items-center gap-3 rounded-full border border-[#52657A] p-3  text-sm font-medium text-[#F8F9FC] transition-all duration-300 hover:border-[#8DEBFF] hover:bg-[#8DEBFF]/5 hover:shadow-[0_0_24px_rgba(139,233,253,0.12)]">
           <span>Reserve</span>
           <span className="text-[#8DEBFF] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
             <IoIosRocket  className="text-[#8DEBFF]"/>
           </span>
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -29,6 +29,7 @@ export interface IShip  {
   amenities: string[],
   backdrop: string,
   destinations: string[],
+  price: string,
 }
 
 export interface iShipCardProps  {
@@ -44,6 +45,7 @@ export const ships: IShip[] = [
     speed: '28,000 km/h',
     range: 'Earth — Mars',
     comfort: 5,
+    price: '$18,500',
     amenities: [
       'Pressurized observation dome',
       'Zero-G dining suite',
@@ -61,6 +63,7 @@ export const ships: IShip[] = [
     speed: '52,000 km/h',
     range: 'Mars — Saturn',
     comfort: 5,
+    price: '$42,000',
     amenities: [
       'Deep-space certified hull',
       'Radiation-shielded suites',
@@ -78,6 +81,7 @@ export const ships: IShip[] = [
     speed: '18,500 km/h',
     range: 'Earth — Europa',
     comfort: 4,
+    price: '$26,000',
     amenities: [
       'Grand observation lounge',
       'Fine dining kitchen',
@@ -95,6 +99,7 @@ export const ships: IShip[] = [
     speed: '64,000 km/h',
     range: 'Earth — Proxima Centauri b',
     comfort: 5,
+    price: '$185,000',
     amenities: [
       'Panoramic viewing deck',
       'Radiation-shielded cabins',
@@ -111,7 +116,8 @@ export const ships: IShip[] = [
     capacity: '48 guests',
     speed: '32,000 km/h',
     range: 'Earth — Mars',
-    comfort: 5,
+    comfort: 4,
+    price: '$12,500',
     amenities: [
       'Multi-level observation lounge',
       'Fine dining restaurant',
@@ -129,6 +135,7 @@ export const ships: IShip[] = [
     speed: '75,000 km/h',
     range: 'Earth — TRAPPIST-1e',
     comfort: 4,
+    price: '$240,000',
     amenities: [
       'Research observation laboratory',
       'Adaptive radiation shielding',
@@ -146,6 +153,7 @@ export const ships: IShip[] = [
     speed: '58,000 km/h',
     range: 'Custom destinations',
     comfort: 5,
+    price: '$95,000',
     amenities: [
       'Fully private cabin suite',
       'Custom flight itineraries',
@@ -163,6 +171,7 @@ export const ships: IShip[] = [
     speed: '24,000 km/h',
     range: 'Earth — TOI-700 d',
     comfort: 4,
+    price: '$78,000',
     amenities: [
       'Modular passenger cabins',
       'Long-duration life support',
@@ -179,7 +188,8 @@ export const ships: IShip[] = [
     capacity: '6 guests',
     speed: '68,000 km/h',
     range: 'Earth — Outer Exoplanets',
-    comfort: 5,
+    comfort: 4,
+    price: '$320,000',
     amenities: [
       'Private panoramic observatory',
       'Personal chef and concierge',
