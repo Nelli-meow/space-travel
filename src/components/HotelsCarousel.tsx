@@ -1,4 +1,3 @@
-ы
 const HotelsCarousel = () => {
   return (
     <div className="card">
