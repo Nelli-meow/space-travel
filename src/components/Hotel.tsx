@@ -7,6 +7,12 @@ type HotelProps = {
 };
 
 const Hotel = ({hotel}: HotelProps) => {
+  const formatter = new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'USD', // Код валюты (USD, EUR, KGS, RUB и т.д.)
+    minimumFractionDigits: 0 // Убрать копейки, если они равны нулю
+  });
+
   return (
     <RevealOnScroll>
       <div className="liquid-glass flex h-full w-full flex-col overflow-hidden rounded-2xl px-4 py-6 transition-transform duration-500 hover:scale-[1.03]">
@@ -23,7 +29,7 @@ const Hotel = ({hotel}: HotelProps) => {
         </div>
         <div className="mt-auto">
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 liquid-glass">
-            {hotel.price}
+            ${formatter.format(hotel.price)}
           </span>
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 liquid-glass">
             <p className="text-sm tracking-wide">

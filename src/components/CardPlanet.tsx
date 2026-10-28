@@ -9,6 +9,12 @@ type CardProps = {
 };
 
 const CardPlanet = ({ destination, reversed }: CardProps) => {
+  const formatter = new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'USD', // Код валюты (USD, EUR, KGS, RUB и т.д.)
+    minimumFractionDigits: 0 // Убрать копейки, если они равны нулю
+  });
+
   return (
     <article className="relative w-full overflow-hidden border-t-1 border-gray-700 bg-[#0a0d16]">
       <div className="relative mx-auto max-w-6xl px-8 py-12 ">
@@ -57,7 +63,7 @@ const CardPlanet = ({ destination, reversed }: CardProps) => {
                     From
                   </p>
                   <p className="mt-2 text-lg text-[#e8843a]">
-                    {destination.price}
+                    ${formatter.format(destination.price)}
                   </p>
                 </div>
                 <div className="px-5 py-4">

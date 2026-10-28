@@ -27,7 +27,7 @@ export interface IHotel {
   description: string;
   destinationSlug: string;
   rating: number;
-  price: string;
+  price: number;
   duration: string;
   amenities: string[];
   image: string;
@@ -43,7 +43,7 @@ export const hotels: IHotel[] = [
       'A secluded luxury retreat overlooking the colossal slopes of Olympus Mons. Watch the Martian sunset from a private glass suite before dining beneath the stars.',
     destinationSlug: 'mars',
     rating: 5,
-    price: 'From $2.1M',
+    price: 2100000,
     duration: '10 days',
     amenities: [
       'Panoramic Olympus Mons views',
@@ -60,7 +60,7 @@ export const hotels: IHotel[] = [
       'An intimate residence on the edge of the Martian wilderness, designed around warm interiors, expansive windows, and the quiet beauty of the red desert.',
     destinationSlug: 'mars',
     rating: 5,
-    price: 'From $1.8M',
+    price: 1800000,
     duration: '7 days',
     amenities: [
       'Private desert-view suites',
@@ -79,7 +79,7 @@ export const hotels: IHotel[] = [
       'A warm, protected residence beneath Europa’s frozen shell, overlooking a luminous ridge above the hidden ocean. Blue light filters through the ice throughout the day.',
     destinationSlug: 'europa',
     rating: 5,
-    price: 'From $3.1M',
+    price: 3100000,
     duration: '14 days',
     amenities: [
       'Illuminated ice-view suites',
@@ -96,7 +96,7 @@ export const hotels: IHotel[] = [
       'A minimalist sanctuary carved into the concept of a frozen world, where crystalline architecture frames the extraordinary landscapes beneath Europa’s surface.',
     destinationSlug: 'europa',
     rating: 5,
-    price: 'From $2.7M',
+    price: 2700000,
     duration: '10 days',
     amenities: [
       'Panoramic ice galleries',
@@ -115,7 +115,7 @@ export const hotels: IHotel[] = [
       'Set above a dark methane shore, this atmospheric lodge offers a front-row seat to Titan’s orange twilight, slow-moving clouds, and mysterious alien seas.',
     destinationSlug: 'titan',
     rating: 5,
-    price: 'From $2.8M',
+    price: 2800000,
     duration: '12 days',
     amenities: [
       'Methane-sea panoramic deck',
@@ -132,7 +132,7 @@ export const hotels: IHotel[] = [
       'A remote luxury residence designed around the spectacle of Saturn. Warm amber interiors and elevated viewing galleries make the distant rings part of every stay.',
     destinationSlug: 'titan',
     rating: 4,
-    price: 'From $2.3M',
+    price: 2300000,
     duration: '9 days',
     amenities: [
       'Saturn-facing observation suites',
@@ -151,7 +151,7 @@ export const hotels: IHotel[] = [
       'A vast enclosed resort recreating temperate landscapes beneath an unfamiliar sky. Artificial lakes, lush gardens, and carefully controlled environments offer a glimpse of another possible home.',
     destinationSlug: 'kepler-452b',
     rating: 5,
-    price: 'From $14.8M',
+    price: 14800000,
     duration: '30 days',
     amenities: [
       'Earth-like botanical gardens',
@@ -168,7 +168,7 @@ export const hotels: IHotel[] = [
       'An exclusive garden estate inside a climate-controlled biosphere, blending elegant architecture with engineered forests and peaceful green spaces.',
     destinationSlug: 'kepler-452b',
     rating: 5,
-    price: 'From $12.6M',
+    price: 12600000,
     duration: '21 days',
     amenities: [
       'Private garden residences',
@@ -187,7 +187,7 @@ export const hotels: IHotel[] = [
       'An ocean-inspired sanctuary with immense water gardens and panoramic underwater observatories. Explore the idea of an alien marine world without leaving the safety of a sealed habitat.',
     destinationSlug: 'toi-700-d',
     rating: 5,
-    price: 'From $9.6M',
+    price: 9600000,
     duration: '21 days',
     amenities: [
       'Panoramic aquatic observatory',
@@ -204,7 +204,7 @@ export const hotels: IHotel[] = [
       'A tranquil retreat inspired by distant oceans, with sculptural water features, cool blue interiors, and expansive views across a carefully simulated alien seascape.',
     destinationSlug: 'toi-700-d',
     rating: 5,
-    price: 'From $8.2M',
+    price: 8200000,
     duration: '16 days',
     amenities: [
       'Private aquatic-view suites',
@@ -223,7 +223,7 @@ export const hotels: IHotel[] = [
       'A fully enclosed settlement concept beneath the light of Proxima Centauri. Artificial daylight cycles, radiation shielding, and refined interiors create a secluded refuge around the nearest known exoplanetary neighbor.',
     destinationSlug: 'proxima-centauri-b',
     rating: 5,
-    price: 'From $18.2M',
+    price: 18200000,
     duration: '42 days',
     amenities: [
       'Radiation-shielded luxury suites',
@@ -240,7 +240,7 @@ export const hotels: IHotel[] = [
       'A dramatic architectural retreat built around deep crimson lighting, quiet private spaces, and extraordinary views of a distant red star.',
     destinationSlug: 'proxima-centauri-b',
     rating: 5,
-    price: 'From $15.7M',
+    price: 15700000,
     duration: '28 days',
     amenities: [
       'Crimson panoramic lounges',
@@ -259,7 +259,7 @@ export const hotels: IHotel[] = [
       'A protected botanical settlement beneath a distant red star, with transparent domes, engineered wetlands, and carefully regulated atmospheric conditions.',
     destinationSlug: 'trappist-1e',
     rating: 4,
-    price: 'From $11.3M',
+    price: 11300000,
     duration: '18 days',
     amenities: [
       'Immersive botanical domes',
@@ -276,7 +276,7 @@ export const hotels: IHotel[] = [
       'An intimate retreat where sculptural glass architecture surrounds tranquil gardens, softly illuminated pathways, and peaceful observation spaces.',
     destinationSlug: 'trappist-1e',
     rating: 5,
-    price: 'From $9.4M',
+    price: 9400000,
     duration: '14 days',
     amenities: [
       'Private conservatory suites',
@@ -295,7 +295,7 @@ export const hotels: IHotel[] = [
       'A climate-controlled ocean retreat beneath a permanent twilight sky, offering an immersive vision of alien tides and the quiet mystery of a distant rocky world.',
     destinationSlug: 'lhs-1140-b',
     rating: 4,
-    price: 'From $13.7M',
+    price: 13700000,
     duration: '24 days',
     amenities: [
       'Simulated ocean-view suites',
@@ -312,7 +312,7 @@ export const hotels: IHotel[] = [
       'A secluded residence inspired by the stillness of permanent dusk, with blue-toned interiors, reflective architecture, and panoramic atmospheric displays.',
     destinationSlug: 'lhs-1140-b',
     rating: 5,
-    price: 'From $11.9M',
+    price: 11900000,
     duration: '18 days',
     amenities: [
       'Blue-hour panoramic suites',
@@ -331,7 +331,7 @@ export const hotels: IHotel[] = [
       'A protected valley estate imagined beneath a soft crimson sun, where alien flora, violet horizons, and carefully curated wilderness create an atmosphere of absolute seclusion.',
     destinationSlug: 'kepler-186f',
     rating: 5,
-    price: 'From $12.5M',
+    price: 12500000,
     duration: '28 days',
     amenities: [
       'Private alien botanical gardens',
@@ -348,7 +348,7 @@ export const hotels: IHotel[] = [
       'An elegant hideaway among imagined alien gardens, with sculptural architecture, atmospheric lighting, and uninterrupted views of the distant horizon.',
     destinationSlug: 'kepler-186f',
     rating: 4,
-    price: 'From $10.8M',
+    price: 10800000,
     duration: '21 days',
     amenities: [
       'Panoramic garden villas',

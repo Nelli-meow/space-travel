@@ -10,6 +10,12 @@ const stats = [
 ] as const;
 
 const ShipCard = ({ ship }: iShipCardProps) => {
+  const formatter = new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: 'USD', // Код валюты (USD, EUR, KGS, RUB и т.д.)
+    minimumFractionDigits: 0 // Убрать копейки, если они равны нулю
+  });
+
   return (
     <RevealOnScroll>
       <article className="group relative overflow-hidden rounded-2xl border border-white/10 px-8 py-10">
@@ -44,7 +50,7 @@ const ShipCard = ({ ship }: iShipCardProps) => {
                     {stat.label}
                   </p>
                   <p className="mt-1 text-sm text-white">
-                    {ship[stat.key]}
+                    {stat.key === 'price' ? formatter.format(ship[stat.key]) : ship[stat.key]}
                   </p>
                 </div>
               ))}

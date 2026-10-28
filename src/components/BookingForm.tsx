@@ -2,6 +2,7 @@ import { type FormEvent, useState } from 'react';
 import { destinations } from '../types/destination.ts';
 import { hotels } from '../types/hotels.ts';
 import { ships } from '../types/fleet.ts';
+import { PiWarningCircleBold } from 'react-icons/pi';
 
 const fieldClassName =
   'cursor-pointer h-12 w-full appearance-none rounded-xl border border-white/15 bg-white/[0.04] px-4 pr-11 text-sm text-white outline-none [color-scheme:dark] focus:border-[#67d4e0]';
@@ -50,6 +51,9 @@ const BookingForm = () => {
       return;
     } if (!shipSlug) {
       setErrors('Choose a ship');
+      return;
+    } if (departure === '') {
+      setErrors('Choose a departure');
       return;
     }
     setErrors('');
@@ -175,7 +179,10 @@ const BookingForm = () => {
               className={fieldClassName}
               type="date"
               value={departure}
-              onChange={(event) => setDeparture(event.target.value)}
+              onChange={(event) => {
+                setDeparture(event.target.value);
+                setErrors('');
+              }}
             />
           </label>
 
@@ -209,15 +216,15 @@ const BookingForm = () => {
           Continue
         </button>
         {errors && (
-          <p className=" text-sm text-red-800">
-            {errors}
-          </p>
+          <div className="flex items-center gap-2 text-sm text-red-600">
+            <PiWarningCircleBold /> {errors}
+          </div>
         )}
       </form>
 
-      {destination && hotel && ship && (
+      {destination && hotel && ship && departure && (
         <p className="mt-6 text-sm text-white/45">
-          {destination.title} · {hotel.name} · {ship.name} · {guests} guests
+          {destination.title} · {hotel.name} · {ship.name} · {departure} · {guests} guests
         </p>
       )}
     </section>
