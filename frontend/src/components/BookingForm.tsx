@@ -38,8 +38,6 @@ const BookingForm = () => {
 
   const [reservation, setReservation] = useState<IReservation | undefined>( undefined);
 
-
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!destinationSlug) {
@@ -216,7 +214,10 @@ const BookingForm = () => {
               <select
                 className={fieldClassName}
                 value={guests}
-                onChange={(event) => setGuests(event.target.value)}
+                onChange={(event) => {
+                  setGuests(event.target.value);
+                  setReservation(undefined)
+                }}
               >
                 {['1', '2', '3', '4', '5', '6'].map((count) => (
                   <option key={count} value={count}>
