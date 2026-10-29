@@ -3,6 +3,7 @@ import { destinations } from '../types/destination.ts';
 import { hotels } from '../types/hotels.ts';
 import { ships } from '../types/fleet.ts';
 import { PiWarningCircleBold } from 'react-icons/pi';
+import type { IReservation } from '../types/reservation.ts';
 
 const fieldClassName =
   'cursor-pointer h-12 w-full appearance-none rounded-xl border border-white/15 bg-white/[0.04] px-4 pr-11 text-sm text-white outline-none [color-scheme:dark] focus:border-[#67d4e0]';
@@ -35,33 +36,49 @@ const BookingForm = () => {
   const [guests, setGuests] = useState('2');
   const [errors, setErrors] = useState('');
 
-  const destination = destinations.find(
-    (item) => item.slug === destinationSlug,
-  );
-  const hotel = hotels.find((item) => item.slug === hotelSlug);
-  const ship = ships.find((item) => item.slug === shipSlug);
+  const [reservation, setReservation] = useState<IReservation | undefined>( undefined);
+
+
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!destinationSlug) {
       setErrors('Choose a destination');
+      setReservation(undefined);
       return;
     } if (!hotelSlug) {
       setErrors('Choose a hotel');
+      setReservation(undefined);
       return;
     } if (!shipSlug) {
       setErrors('Choose a ship');
+      setReservation(undefined);
       return;
     } if (departure === '') {
       setErrors('Choose a departure');
+      setReservation(undefined);
       return;
     }
+    setReservation({
+      destinationSlug: destinationSlug,
+      shipSlug: shipSlug,
+      hotelSlug: hotelSlug,
+      departure: departure,
+      guests: Number(guests),
+    });
     setErrors('');
   };
 
   const filteredHotels = hotels.filter(item => item.destinationSlug === destinationSlug);
   const filteredShips = ships.filter(item => item.destinations.includes(destinationSlug));
 
+  const destination = destinations.find(
+    (item) => item.slug === reservation?.destinationSlug,
+  );
+  const hotel = hotels.find((item) => item.slug === reservation?.hotelSlug);
+  const ship = ships.find((item) => item.slug === reservation?.shipSlug);
+
+  console.log(destination?.title);
 
   return (
     <section className="relative z-10 mx-auto max-w-xl px-6 pb-24">
@@ -92,6 +109,7 @@ const BookingForm = () => {
                 setHotelSlug('');
                 setShipSlug('');
                 setErrors('');
+                setReservation(undefined);
               }}
             >
               <option value="" disabled>
@@ -122,6 +140,7 @@ const BookingForm = () => {
               onChange={(event) => {
                 setHotelSlug(event.target.value);
                 setErrors('');
+                setReservation(undefined)
               }}
             >
               <option value="" disabled>
@@ -152,6 +171,7 @@ const BookingForm = () => {
               onChange={(event) => {
                 setShipSlug(event.target.value);
                 setErrors('');
+                setReservation(undefined)
               }}
             >
               <option value="" disabled>
@@ -182,6 +202,7 @@ const BookingForm = () => {
               onChange={(event) => {
                 setDeparture(event.target.value);
                 setErrors('');
+                setReservation(undefined)
               }}
             />
           </label>
@@ -222,9 +243,9 @@ const BookingForm = () => {
         )}
       </form>
 
-      {destination && hotel && ship && departure && (
+      {reservation?.destinationSlug && reservation?.hotelSlug && reservation?.shipSlug && reservation?.departure && reservation?.guests && (
         <p className="mt-6 text-sm text-white/45">
-          {destination.title} · {hotel.name} · {ship.name} · {departure} · {guests} guests
+          {destination?.title} · {hotel?.name} · {ship?.name} · {reservation?.departure} · {reservation?.guests} guests
         </p>
       )}
     </section>
