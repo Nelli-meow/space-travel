@@ -4,13 +4,13 @@ import { hotels } from '../types/hotels.ts';
 import { ships } from '../types/fleet.ts';
 import { PiWarningCircleBold } from 'react-icons/pi';
 import type { IReservation } from '../types/reservation.ts';
+import { RevealOnScroll } from './RevealOnScroll.tsx';
 
 const fieldClassName =
   'cursor-pointer h-12 w-full appearance-none rounded-xl border border-white/15 bg-white/[0.04] px-4 pr-11 text-sm text-white outline-none [color-scheme:dark] focus:border-[#67d4e0]';
 
 const fieldDisabledClassName =
   'cursor-not-allowed h-12 w-full appearance-none rounded-xl border border-white/15 bg-white/[0.04] px-4 pr-11 text-sm text-white outline-none [color-scheme:dark] focus:border-[#67d4e0]';
-
 
 const SelectArrow = () => (
   <svg
@@ -20,11 +20,7 @@ const SelectArrow = () => (
     stroke="currentColor"
     strokeWidth="1.5"
   >
-    <path
-      d="m7 10 5 5 5-5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+    <path d="m7 10 5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -36,7 +32,9 @@ const BookingForm = () => {
   const [guests, setGuests] = useState('2');
   const [errors, setErrors] = useState('');
 
-  const [reservation, setReservation] = useState<IReservation | undefined>( undefined);
+  const [reservation, setReservation] = useState<IReservation | undefined>(
+    undefined,
+  );
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -44,15 +42,18 @@ const BookingForm = () => {
       setErrors('Choose a destination');
       setReservation(undefined);
       return;
-    } if (!hotelSlug) {
+    }
+    if (!hotelSlug) {
       setErrors('Choose a hotel');
       setReservation(undefined);
       return;
-    } if (!shipSlug) {
+    }
+    if (!shipSlug) {
       setErrors('Choose a ship');
       setReservation(undefined);
       return;
-    } if (departure === '') {
+    }
+    if (departure === '') {
       setErrors('Choose a departure');
       setReservation(undefined);
       return;
@@ -67,8 +68,12 @@ const BookingForm = () => {
     setErrors('');
   };
 
-  const filteredHotels = hotels.filter(item => item.destinationSlug === destinationSlug);
-  const filteredShips = ships.filter(item => item.destinations.includes(destinationSlug));
+  const filteredHotels = hotels.filter(
+    (item) => item.destinationSlug === destinationSlug,
+  );
+  const filteredShips = ships.filter((item) =>
+    item.destinations.includes(destinationSlug),
+  );
 
   const destination = destinations.find(
     (item) => item.slug === reservation?.destinationSlug,
@@ -76,152 +81,46 @@ const BookingForm = () => {
   const hotel = hotels.find((item) => item.slug === reservation?.hotelSlug);
   const ship = ships.find((item) => item.slug === reservation?.shipSlug);
 
-  console.log(destination?.title);
-
   return (
     <section className="relative z-10 mx-auto max-w-xl px-6 pb-24">
-      <p className="text-[11px] tracking-[0.28em] text-[#67d4e0] uppercase">
-        Reserve
-      </p>
+      <RevealOnScroll>
+        <p className="text-[11px] tracking-[0.28em] text-[#67d4e0] uppercase">
+          Reserve
+        </p>
 
-      <h1 className="mt-4 font-['Playfair_Display',serif] text-5xl leading-none font-medium">
-        Plan your journey
-      </h1>
+        <h1 className="mt-4 font-['Playfair_Display',serif] text-5xl leading-none font-medium">
+          Plan your journey
+        </h1>
 
-      <p className="mt-4 max-w-md text-sm leading-7 text-white/45">
-        Choose where you travel, where you stay, and how you fly.
-      </p>
+        <p className="mt-4 max-w-md text-sm leading-7 text-white/45">
+          Choose where you travel, where you stay, and how you fly.
+        </p>
 
-      <form className="mt-10 space-y-5" onSubmit={handleSubmit}>
-        <label className="block">
+        <form className="mt-10 space-y-5" onSubmit={handleSubmit}>
+          <label className="block">
             <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
               Destination
             </span>
 
-          <div className="relative">
-            <select
-              className={fieldClassName}
-              value={destinationSlug}
-              onChange={(event) => {
-                setDestinationSlug(event.target.value);
-                setHotelSlug('');
-                setShipSlug('');
-                setErrors('');
-                setReservation(undefined);
-              }}
-            >
-              <option value="" disabled>
-                Select a planet
-              </option>
-
-              {destinations.map((item) => (
-                <option key={item.slug} value={item.slug}>
-                  {item.title}
-                </option>
-              ))}
-            </select>
-
-            <SelectArrow />
-          </div>
-        </label>
-
-        <label className="block">
-            <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
-              Stay
-            </span>
-
-          <div className="relative">
-            <select
-              disabled={!destinationSlug}
-              className={!destinationSlug ? fieldDisabledClassName : fieldClassName}
-              value={hotelSlug}
-              onChange={(event) => {
-                setHotelSlug(event.target.value);
-                setErrors('');
-                setReservation(undefined)
-              }}
-            >
-              <option value="" disabled>
-                Select a hotel
-              </option>
-
-              {filteredHotels.map((item) => (
-                <option key={item.slug} value={item.slug}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-
-            <SelectArrow />
-          </div>
-        </label>
-
-        <label className="block">
-            <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
-              Vessel
-            </span>
-
-          <div className="relative">
-            <select
-              disabled={!hotelSlug}
-              className={!hotelSlug ? fieldDisabledClassName : fieldClassName}
-              value={shipSlug}
-              onChange={(event) => {
-                setShipSlug(event.target.value);
-                setErrors('');
-                setReservation(undefined)
-              }}
-            >
-              <option value="" disabled>
-                Select a ship
-              </option>
-
-              {filteredShips.map((item) => (
-                <option key={item.slug} value={item.slug}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-
-            <SelectArrow />
-          </div>
-        </label>
-
-        <div className="grid grid-cols-2 gap-4">
-          <label className="block">
-              <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
-                Departure
-              </span>
-
-            <input
-              className={fieldClassName}
-              type="date"
-              value={departure}
-              onChange={(event) => {
-                setDeparture(event.target.value);
-                setErrors('');
-                setReservation(undefined)
-              }}
-            />
-          </label>
-
-          <label className="block">
-              <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
-                Guests
-              </span>
-
             <div className="relative">
               <select
                 className={fieldClassName}
-                value={guests}
+                value={destinationSlug}
                 onChange={(event) => {
-                  setGuests(event.target.value);
-                  setReservation(undefined)
+                  setDestinationSlug(event.target.value);
+                  setHotelSlug('');
+                  setShipSlug('');
+                  setErrors('');
+                  setReservation(undefined);
                 }}
               >
-                {['1', '2', '3', '4', '5', '6'].map((count) => (
-                  <option key={count} value={count}>
-                    {count}
+                <option value="" disabled>
+                  Select a planet
+                </option>
+
+                {destinations.map((item) => (
+                  <option key={item.slug} value={item.slug}>
+                    {item.title}
                   </option>
                 ))}
               </select>
@@ -229,26 +128,139 @@ const BookingForm = () => {
               <SelectArrow />
             </div>
           </label>
-        </div>
 
-        <button
-          type="submit"
-          className="mt-2 h-12 w-full cursor-pointer rounded-full bg-[linear-gradient(100deg,#3b78ff_0%,#3ad4f0_100%)] text-[12px] font-medium tracking-[0.16em] text-white uppercase"
-        >
-          Continue
-        </button>
-        {errors && (
-          <div className="flex items-center gap-2 text-sm text-red-600">
-            <PiWarningCircleBold /> {errors}
+          <label className="block">
+            <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
+              Stay
+            </span>
+
+            <div className="relative">
+              <select
+                disabled={!destinationSlug}
+                className={
+                  !destinationSlug ? fieldDisabledClassName : fieldClassName
+                }
+                value={hotelSlug}
+                onChange={(event) => {
+                  setHotelSlug(event.target.value);
+                  setErrors('');
+                  setReservation(undefined);
+                }}
+              >
+                <option value="" disabled>
+                  Select a hotel
+                </option>
+
+                {filteredHotels.map((item) => (
+                  <option key={item.slug} value={item.slug}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+
+              <SelectArrow />
+            </div>
+          </label>
+
+          <label className="block">
+            <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
+              Vessel
+            </span>
+
+            <div className="relative">
+              <select
+                disabled={!hotelSlug}
+                className={!hotelSlug ? fieldDisabledClassName : fieldClassName}
+                value={shipSlug}
+                onChange={(event) => {
+                  setShipSlug(event.target.value);
+                  setErrors('');
+                  setReservation(undefined);
+                }}
+              >
+                <option value="" disabled>
+                  Select a ship
+                </option>
+
+                {filteredShips.map((item) => (
+                  <option key={item.slug} value={item.slug}>
+                    {item.name}
+                  </option>
+                ))}
+              </select>
+
+              <SelectArrow />
+            </div>
+          </label>
+
+          <div className="grid grid-cols-2 gap-4">
+            <label className="block">
+              <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
+                Departure
+              </span>
+
+              <input
+                className={fieldClassName}
+                type="date"
+                value={departure}
+                onChange={(event) => {
+                  setDeparture(event.target.value);
+                  setErrors('');
+                  setReservation(undefined);
+                }}
+              />
+            </label>
+
+            <label className="block">
+              <span className="mb-2 block text-[11px] tracking-[0.18em] text-white/40 uppercase">
+                Guests
+              </span>
+
+              <div className="relative">
+                <select
+                  className={fieldClassName}
+                  value={guests}
+                  onChange={(event) => {
+                    setGuests(event.target.value);
+                    setReservation(undefined);
+                  }}
+                >
+                  {['1', '2', '3', '4', '5', '6'].map((count) => (
+                    <option key={count} value={count}>
+                      {count}
+                    </option>
+                  ))}
+                </select>
+
+                <SelectArrow />
+              </div>
+            </label>
           </div>
-        )}
-      </form>
 
-      {reservation?.destinationSlug && reservation?.hotelSlug && reservation?.shipSlug && reservation?.departure && reservation?.guests && (
-        <p className="mt-6 text-sm text-white/45">
-          {destination?.title} · {hotel?.name} · {ship?.name} · {reservation?.departure} · {reservation?.guests} guests
-        </p>
-      )}
+          <button
+            type="submit"
+            className="mt-2 h-12 w-full cursor-pointer rounded-full bg-[linear-gradient(100deg,#3b78ff_0%,#3ad4f0_100%)] text-[12px] font-medium tracking-[0.16em] text-white uppercase"
+          >
+            Continue
+          </button>
+          {errors && (
+            <div className="flex items-center gap-2 text-sm text-red-600">
+              <PiWarningCircleBold /> {errors}
+            </div>
+          )}
+        </form>
+
+        {reservation?.destinationSlug &&
+          reservation?.hotelSlug &&
+          reservation?.shipSlug &&
+          reservation?.departure &&
+          reservation?.guests && (
+            <p className="mt-6 text-sm text-white/45">
+              {destination?.title} · {hotel?.name} · {ship?.name} ·{' '}
+              {reservation?.departure} · {reservation?.guests} guests
+            </p>
+          )}
+      </RevealOnScroll>
     </section>
   );
 };
