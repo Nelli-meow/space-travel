@@ -5,6 +5,7 @@ import { ships } from '../types/fleet.ts';
 import { PiWarningCircleBold } from 'react-icons/pi';
 import type { IReservation } from '../types/reservation.ts';
 import { RevealOnScroll } from './RevealOnScroll.tsx';
+import { createReservation } from '../api/reservations.ts';
 
 const fieldClassName =
   'cursor-pointer h-12 w-full appearance-none rounded-xl border border-white/15 bg-white/[0.04] px-4 pr-11 text-sm text-white outline-none [color-scheme:dark] focus:border-[#67d4e0]';
@@ -31,41 +32,55 @@ const BookingForm = () => {
   const [departure, setDeparture] = useState('');
   const [guests, setGuests] = useState('2');
   const [errors, setErrors] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [reservation, setReservation] = useState<IReservation | undefined>(
     undefined,
   );
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!destinationSlug) {
-      setErrors('Choose a destination');
-      setReservation(undefined);
-      return;
+
+    try {
+      if (!destinationSlug) {
+        setErrors('Choose a destination');
+        setReservation(undefined);
+        return;
+      }
+      if (!hotelSlug) {
+        setErrors('Choose a hotel');
+        setReservation(undefined);
+        return;
+      }
+      if (!shipSlug) {
+        setErrors('Choose a ship');
+        setReservation(undefined);
+        return;
+      }
+      if (departure === '') {
+        setErrors('Choose a departure');
+        setReservation(undefined);
+        return;
+      }
+
+      setIsSubmitting(true);
+       const  result = await createReservation({
+        destinationSlug: destinationSlug,
+        shipSlug: shipSlug,
+        hotelSlug: hotelSlug,
+        departure: departure,
+        guests: Number(guests),
+      })
+
+      setReservation(result);
+      setErrors('');
+
+    } catch {
+      setReservation(undefined)
+      setErrors(`Could not save the reservation`);
+    } finally {
+      setIsSubmitting(false);
     }
-    if (!hotelSlug) {
-      setErrors('Choose a hotel');
-      setReservation(undefined);
-      return;
-    }
-    if (!shipSlug) {
-      setErrors('Choose a ship');
-      setReservation(undefined);
-      return;
-    }
-    if (departure === '') {
-      setErrors('Choose a departure');
-      setReservation(undefined);
-      return;
-    }
-    setReservation({
-      destinationSlug: destinationSlug,
-      shipSlug: shipSlug,
-      hotelSlug: hotelSlug,
-      departure: departure,
-      guests: Number(guests),
-    });
-    setErrors('');
   };
 
   const filteredHotels = hotels.filter(
@@ -80,6 +95,9 @@ const BookingForm = () => {
   );
   const hotel = hotels.find((item) => item.slug === reservation?.hotelSlug);
   const ship = ships.find((item) => item.slug === reservation?.shipSlug);
+
+
+  console.log(reservation);
 
   return (
     <section className="relative z-10 mx-auto max-w-xl px-6 pb-24">
@@ -239,6 +257,7 @@ const BookingForm = () => {
 
           <button
             type="submit"
+            disabled={isSubmitting}
             className="mt-2 h-12 w-full cursor-pointer rounded-full bg-[linear-gradient(100deg,#3b78ff_0%,#3ad4f0_100%)] text-[12px] font-medium tracking-[0.16em] text-white uppercase"
           >
             Continue

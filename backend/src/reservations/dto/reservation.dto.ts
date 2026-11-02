@@ -7,7 +7,7 @@ export class CreateReservationDto {
 
   @IsString()
   @IsNotEmpty()
-  hospitalSlug: string;
+  hotelSlug: string;
 
   @IsString()
   @IsNotEmpty()
@@ -20,6 +20,4 @@ export class CreateReservationDto {
   @IsInt()
   @Min(1)
   guests: number;
-
-  // hotelSlug, shipSlug и departure — те же два декоратора
 }
