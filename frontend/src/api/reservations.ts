@@ -1,4 +1,4 @@
-import type { IReservation } from '../types/reservation.ts';
+import type { IReservation, Reservation } from '../types/reservation.ts';
 import { apiClient } from './client.ts';
 
 export const createReservation = async (
@@ -10,3 +10,12 @@ export const createReservation = async (
   );
   return response.data;
 };
+
+export const getReservations = async (
+
+): Promise<Reservation[]> => {
+  const response = await apiClient.get(
+    '/reservations',
+  );
+  return response.data;
+}

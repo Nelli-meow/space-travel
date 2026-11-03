@@ -4,6 +4,7 @@ import Fleet from '../pages/Fleet.tsx';
 import Destinations from '../pages/Destinations.tsx';
 import Hotels from '../pages/Hotels.tsx';
 import Booking from '../pages/Booking.tsx';
+import Reservations from '../pages/Reservations.tsx';
 
 export const router = createBrowserRouter([
   {
@@ -25,5 +26,9 @@ export const router = createBrowserRouter([
   {
     path: '/booking',
     element: <Booking/>
+  },
+  {
+    path: '/reservations',
+    element: <Reservations/>
   }
 ]);

@@ -21,7 +21,7 @@ const Header = () => {
         <Link to="/destinations" className="transition-colors hover:text-white">Destinations</Link>
         <Link to="/fleet" className="transition-colors hover:text-white">Fleet</Link>
         <Link to="/hotels" className="transition-colors hover:text-white">Hotels</Link>
-        <Link to="#" className="transition-colors hover:text-white">Experience</Link>
+        <Link to="/reservations" className="transition-colors hover:text-white">Reservations</Link>
         <Link to="#" className="transition-colors hover:text-white">Stories</Link>
       </nav>
 
