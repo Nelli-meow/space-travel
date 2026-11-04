@@ -5,6 +5,7 @@ const CardSection = () => {
   return (
     <section className="w-full bg-black text-white">
       <div className="flex w-full flex-col">
+
         {destinations.slice(0, 3).map((destination, index) => (
           <CardPlanet
             key={destination.slug}

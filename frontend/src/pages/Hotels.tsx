@@ -5,6 +5,7 @@ import Hotel from '../components/Hotel.tsx';
 import { hotels } from '../types/hotels.ts';
 import { useState } from 'react';
 import { Paginator, type PaginatorPageChangeEvent } from 'primereact/paginator';
+import { RevealOnScroll } from '../components/RevealOnScroll.tsx';
 
 
 const Hotels = () => {
@@ -23,7 +24,20 @@ const Hotels = () => {
       <Header />
       <CanvasStars />
       <section className="relative z-10 mx-auto max-w-6xl px-6 pb-16">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealOnScroll>
+          <p className="text-[11px] tracking-[0.28em] text-[#67d4e0] uppercase relative">
+            Manifest
+          </p>
+          <h1 className="mt-4 font-['Playfair_Display',serif] text-5xl leading-none font-medium relative">
+            Hotels
+          </h1>
+          <p className="mt-4 max-w-md text-sm leading-7 text-white/45 relative">
+            A sanctuary among the stars. Every stay is a world of its own.
+          </p>
+        </RevealOnScroll>
+
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-14">
           {visibleHotels.map((hotel) => (
             <Hotel hotel={hotel} key={hotel.slug} />
           ))}

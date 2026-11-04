@@ -18,7 +18,7 @@ export class ReservationsService {
     return reservation;
   }
   findAll(): Reservation[] {
-    return this.reservations;
+    return [...this.reservations].reverse();
   }
   findOne(id: string): Reservation {
     const oneReservation = this.reservations.find(item => item.id === id);

@@ -6,6 +6,7 @@ import { PiWarningCircleBold } from 'react-icons/pi';
 import type { IReservation } from '../types/reservation.ts';
 import { RevealOnScroll } from './RevealOnScroll.tsx';
 import { createReservation } from '../api/reservations.ts';
+import { useQueryClient } from '@tanstack/react-query';
 
 const fieldClassName =
   'cursor-pointer h-12 w-full appearance-none rounded-xl border border-white/15 bg-white/[0.04] px-4 pr-11 text-sm text-white outline-none [color-scheme:dark] focus:border-[#67d4e0]';
@@ -37,6 +38,8 @@ const BookingForm = () => {
   const [reservation, setReservation] = useState<IReservation | undefined>(
     undefined,
   );
+
+  const queryClient = useQueryClient();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -73,6 +76,7 @@ const BookingForm = () => {
       })
 
       setReservation(result);
+      await queryClient.invalidateQueries({ queryKey: ['reservations'] });
       setErrors('');
 
     } catch {
@@ -95,6 +99,7 @@ const BookingForm = () => {
   );
   const hotel = hotels.find((item) => item.slug === reservation?.hotelSlug);
   const ship = ships.find((item) => item.slug === reservation?.shipSlug);
+
 
 
   console.log(reservation);

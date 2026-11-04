@@ -118,7 +118,7 @@ const ReservationSection = () => {
                     </div>
 
                     <div className="flex items-end justify-between gap-4 border-white/15 sm:flex-col sm:items-end sm:justify-between sm:border-l sm:border-dashed sm:pl-6">
-                      <p className="text-[10px] tracking-[0.28em] text-white/35 uppercase">
+                      <p className="text-[10px] tracking-[0.28em] text-green-400 uppercase">
                         Confirmed
                       </p>
                       <p className="font-mono text-sm tracking-[0.14em] text-[#e6c15a]">
